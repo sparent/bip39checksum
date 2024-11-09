@@ -36,7 +36,7 @@ wordsfile = sys.path[0] + "/english.txt"
 def parse_arguments():
     global args
     parser = argparse.ArgumentParser("bip39checksum.py")
-    parser.add_argument("-s", "--sequence", help="Specify sequence words file \
+    parser.add_argument("-s", "--sequence", help="Specify sequence words string \
                         to check. Single line, words separated by a space", type=str, required=True)
     args = parser.parse_args()
 
@@ -60,9 +60,10 @@ def main():
         sys.exit()
 
     try:
-        f = open(sequence)
-        words = f.read().strip()
-        f.close()
+        # f = open(sequence)
+        # words = f.read().strip()
+        # f.close()
+        words = sequence.strip()
         if len(words.split(' ')) != 23:
             print("ERROR: it does not seem 23 words sequence")
             sys.exit()
